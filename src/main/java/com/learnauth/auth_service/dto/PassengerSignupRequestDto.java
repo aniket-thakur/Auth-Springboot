@@ -9,6 +9,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class PassengerSignupRequestDto {
+    private String id;
+
     private String email;
 
     private String name;
@@ -17,5 +19,5 @@ public class PassengerSignupRequestDto {
 
     private String mobileNumber;
 
-    private String licenseNumber;
+   
 }
