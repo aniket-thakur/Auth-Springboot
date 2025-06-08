@@ -1,0 +1,86 @@
+# Gradle
+.gradle/
+build/
+.project
+.settings/
+bin/
+out/
+
+# Individual files and directories to ignore
+*.log
+!*.gradle # Keep build.gradle files
+.project # Eclipse project file
+.classpath # Eclipse classpath file
+.settings/ # Eclipse settings directory
+.project # IntelliJ IDEA project file
+.idea/ # IntelliJ IDEA specific directory
+*.iml # IntelliJ IDEA module files
+*.ipr # IntelliJ IDEA project files
+*.iws # IntelliJ IDEA workspace files
+
+# Spring Boot devtools
+.mvn/
+target/
+!**/src/main/**/target/ # Don't ignore target within source directories
+
+# STS (Spring Tool Suite)
+.apt_generated/
+.factorypath
+.springBeans
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Linux
+.directory
+
+# IntelliJ IDEA (redundant with .idea/ but good for specific files)
+*.iml
+
+# VS Code
+.vscode/
+
+# Local configuration files
+*.properties
+!application.properties # Keep application.properties
+!bootstrap.properties # Keep bootstrap.properties
+*.yml
+!application.yml # Keep application.yml
+!bootstrap.yml # Keep bootstrap.yml
+
+# Compiled class files
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# For testing
+/src/test/resources/test-results/
+
+# Flyway (if used)
+/src/main/resources/db/migration/*.sql # If you generate migration scripts automatically
+
+# Other common ignores
+/.gradle/
+/build/
+/target/
+/.idea/
+*.iml
+*.iws
+*.ipr
+.classpath
+.project
+.settings/
+bin/
+out/
+tmp/
+.vscode/
