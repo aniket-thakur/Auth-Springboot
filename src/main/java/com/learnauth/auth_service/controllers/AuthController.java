@@ -5,10 +5,7 @@ import com.learnauth.auth_service.dto.PassengerSignupRequestDto;
 import com.learnauth.auth_service.services.AuthService;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/auth")
@@ -24,6 +21,10 @@ public class AuthController {
     public ResponseEntity<?> signUp(@RequestBody PassengerSignupRequestDto passengerSignupRequestDto){
         PassengerDto response = authService.passengerSignup(passengerSignupRequestDto);
         return new ResponseEntity<>(response, HttpStatusCode.valueOf(201));
+    }
 
+    @GetMapping("/gettest")
+    public String testGetRequest(){
+        return "This is an Authenticated Endpoint";
     }
 }
