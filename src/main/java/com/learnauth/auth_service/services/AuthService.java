@@ -19,13 +19,14 @@ public class AuthService {
     }
     public PassengerDto passengerSignup(PassengerSignupRequestDto passengerSignupRequestDto){
 
+        System.out.println("Auth serivce");
         Passenger passenger =  Passenger.builder()
                 .Name(passengerSignupRequestDto.getName())
                 .email(passengerSignupRequestDto.getEmail())
                 .password(bCryptPasswordEncoder.encode(passengerSignupRequestDto.getPassword()))
                 .mobileNumber(passengerSignupRequestDto.getMobileNumber())
                 .build();
-
+        System.out.println("Saved");
         Passenger newPassenger = passengerRepository.save(passenger);
 
         return PassengerDto.from(newPassenger);

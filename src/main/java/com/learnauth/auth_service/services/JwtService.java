@@ -74,6 +74,10 @@ public class JwtService implements CommandLineRunner {
                 .compact();
     }
 
+    public String generateToken(String username){
+        return generateToken(new HashMap<>(),username);
+    }
+
     @Override
     public void run(String... args) throws Exception {
         Map<String, Object> mp = new HashMap<>();

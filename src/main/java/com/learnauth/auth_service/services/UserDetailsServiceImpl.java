@@ -6,14 +6,16 @@ import com.learnauth.auth_service.repositories.PassengerRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 /*
 Responsible for loading the user in the form of UserDetails object for  authentication
  */
-
+@Service
 public class UserDetailsServiceImpl implements UserDetailsService {
+
 
     private final PassengerRepository passengerRepository;
 
