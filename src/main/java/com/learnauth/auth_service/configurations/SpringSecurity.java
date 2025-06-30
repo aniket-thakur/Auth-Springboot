@@ -1,5 +1,8 @@
 package com.learnauth.auth_service.configurations;
 
+import com.learnauth.auth_service.filters.JwtAuthenticationFilter;
+import com.learnauth.auth_service.services.JwtService;
+import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -17,6 +20,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
 @Configuration
@@ -25,6 +29,9 @@ public class SpringSecurity{
 
     @Autowired
     private UserDetailsService userDetailsService;
+
+    @Autowired
+    private JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
     public PasswordEncoder passwordEncoder(){
@@ -55,12 +62,22 @@ public class SpringSecurity{
         http.csrf(csrf->csrf.disable())
                 .authorizeHttpRequests((requests)-> requests
                                 .requestMatchers("/api/v1/auth/signup/*").permitAll()
-                                .requestMatchers("/api/v1/auth/*").permitAll()
                                 .requestMatchers("/api/v1/auth/signin/*").permitAll()
-                                .anyRequest().authenticated()
+                )
+                .authorizeHttpRequests(auth->
+                        auth.requestMatchers("/api/v1/auth/validate").authenticated())
+                .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);
 
+        http.exceptionHandling(e ->
+                e.authenticationEntryPoint((req, res, ex) -> {
+                    System.out.println("Auth entry point: " + ex.getMessage());
+                    res.sendError(HttpServletResponse.SC_UNAUTHORIZED, ex.getMessage());
+                }).accessDeniedHandler((req, res, ex) -> {
+                    System.out.println("Access denied: " + ex.getMessage());
+                    res.sendError(HttpServletResponse.SC_FORBIDDEN, ex.getMessage());
+                })
+        );
 
-                        );
         return http.build();
    }
 }

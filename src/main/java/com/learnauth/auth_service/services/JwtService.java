@@ -60,7 +60,10 @@ public class JwtService implements CommandLineRunner {
         return getExpiration(token).before(new Date());
     }
 
-//    public Boolean validateToken(String token,)
+    public Boolean validateToken(String token,String email){
+        String fetchedEmailFromJWT = getUsername(token);
+        return (fetchedEmailFromJWT.equals(email)) && !isTokenExpired(token);
+    }
 
     public String generateToken(Map<String,Object> payload,String username){
         Date expiryDate = getExpiryDate();
