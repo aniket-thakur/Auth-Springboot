@@ -15,6 +15,10 @@ java {
 
 repositories {
 	mavenCentral()
+	maven {
+		url = uri("D:/Spring_Backend/entityService")
+	}
+
 }
 
 dependencies {
@@ -31,11 +35,15 @@ dependencies {
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	// https://mvnrepository.com/artifact/org.springframework.security/spring-security-crypto
 	implementation("org.springframework.security:spring-security-crypto:6.5.0")
-//	spring security
+    //	spring security
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 
-//	jjwt
+    //	jjwt
 	implementation group: 'io.jsonwebtoken', name: 'jjwt', version: '0.12.6'
+
+    // local entity service
+    implementation 'com.learning:entityService:0.0.1-SNAPSHOT'
+
 
 }
 
