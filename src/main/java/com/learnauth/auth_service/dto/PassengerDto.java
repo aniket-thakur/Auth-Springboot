@@ -1,6 +1,6 @@
 package com.learnauth.auth_service.dto;
 
-import com.learnauth.auth_service.models.Passenger;
+import com.learning.entityService.models.Passenger;
 import lombok.*;
 
 import java.util.Date;

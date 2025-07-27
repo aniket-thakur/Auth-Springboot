@@ -2,10 +2,9 @@ package com.learnauth.auth_service.services;
 
 import com.learnauth.auth_service.dto.PassengerDto;
 import com.learnauth.auth_service.dto.PassengerSignupRequestDto;
-import com.learnauth.auth_service.models.Passenger;
 import com.learnauth.auth_service.repositories.PassengerRepository;
+import com.learning.entityService.models.Passenger;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service

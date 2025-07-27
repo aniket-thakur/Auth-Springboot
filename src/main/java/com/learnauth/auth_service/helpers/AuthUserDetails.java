@@ -1,11 +1,10 @@
 package com.learnauth.auth_service.helpers;
 
-import com.learnauth.auth_service.models.Passenger;
+import com.learning.entityService.models.Passenger;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
-import java.util.List;
 
 // Spring security works on UserDetails polymorphic for auth
 public class AuthUserDetails extends Passenger implements UserDetails {

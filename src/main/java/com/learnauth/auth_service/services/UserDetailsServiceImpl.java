@@ -1,8 +1,8 @@
 package com.learnauth.auth_service.services;
 
 import com.learnauth.auth_service.helpers.AuthUserDetails;
-import com.learnauth.auth_service.models.Passenger;
 import com.learnauth.auth_service.repositories.PassengerRepository;
+import com.learning.entityService.models.Passenger;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
